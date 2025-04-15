@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .email-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 26px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background-color: #d9534f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #c9302c;
+        }
+        .email-footer, .signature {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #777;
+        }
+        .footer-text {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+        .signature strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <h2>Hello {{ subscriber.name }},</h2>
+        <h1>Welcome to Computing Research Projects Repository</h1>
+        <p>We're thrilled to have you on board! You are now subscribed to receive the latest updates on cutting-edge research projects, industry news, and upcoming events.</p>
+        <p>Stay informed and ahead of the curve with exclusive insights from the Computing Research Projects Repository.</p>
+        
+        <br>
+        
+        <!-- Footer -->
+        <div class="email-footer">
+            <p>You are receiving this email because you subscribed to updates from <strong>Computing Research Projects Repository</strong>.</p>
+            <p class="footer-text">We value your engagement and look forward to keeping you updated on groundbreaking research.</p>
+            <p>&copy; 2024 Computing Research Projects Repository. All rights reserved.</p>
+        </div>
+
+        <!-- Signature -->
+        <div class="signature">
+            <p>Best regards,</p>
+            <p><strong>ResearchHubX Team</strong></p>
+            <p>Computing Research Projects Repository</p>
+            <p>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</p>
+            <p>Developed by: <a href="https://researchhubx.jhubafrica.com/" target="_blank">ResearchHubX Developers</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,568 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Computing Research Projects Repository (CRPR)</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+      /* General Styles */
+      body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+      }
+      .section {
+        padding: 60px 0;
+      }
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: black;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(to right, #007A33, #003366); /* JKUAT Theme */
+        padding: 60px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+      .hero-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hero-text {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      .hero-image {
+        margin-top: 20px;
+      }
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Our Story Section */
+      .our-story {
+        background: #f8f9fa;
+      }
+      .story-card {
+        background: white;
+        padding: 5px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .story-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+      .story-card img {
+        border-radius: 15px;
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+      }
+      .story-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #2c3e50;
+      }
+      .story-card p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+
+      /* Media Queries for Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .hero-content {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-text {
+          text-align: center;
+        }
+
+        .hero-image {
+          margin-top: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 30px 0;
+        }
+
+        .hero-content {
+          flex-direction: column;
+        }
+
+        .hero-text {
+          margin-bottom: 5px;
+        }
+
+        .hero-image {
+          margin-top: 5px;
+        }
+      }
+      
+      .section-heading {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .step-icon {
+        font-size: 2rem;
+        color: #3498db;
+        margin-right: 10px;
+      }
+      .step-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .step-card:hover {
+        transform: translateY(-5px);
+      }
+      .btn-primary {
+        background-color: #3498db;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+      .btn-primary:hover {
+        background-color: #2980b9;
+      }
+      .icon-box {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .card {
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        border-radius: 12px;
+        transition: all 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <!-- Left Side: Content -->
+        <div class="hero-text col-md-6">
+          <h1 class="text-center fw-bold text-warning mb-4">About CRPR</h1>
+          <p class="lead text-center fw-bold text-light mb-4">The Computing Research Projects Repository (CRPR) is a centralized platform for showcasing and cataloging cutting-edge research in computing.</p>
+        </div>
+        <!-- Right Side: Image -->
+        <div class="hero-image col-md-6">
+          <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hero Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section id="our-story" class="section our-story">
+    <div class="container">
+      <h2 class="text-center fw-bold text-primary mb-4">Our Story</h2>
+      <div class="row">
+        <!-- Story 1 -->
+        <div class="col-md-6">
+          <div class="story-card">
+            <img src="https://images.pexels.com/photos/2508721/pexels-photo-2508721.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Story 1" class="img-fluid">
+            <h3>How It All Began</h3>
+            <p>CRPR was founded in 2024 with the goal of creating a centralized hub for computing research. Our passionate team built a platform for collaboration and innovation.</p>
+          </div>
+        </div>
+        <!-- Story 2 -->
+        <div class="col-md-6">
+          <div class="story-card">
+            <img src="https://images.pexels.com/photos/8297081/pexels-photo-8297081.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Story 2" class="img-fluid">
+            <h3>Our Vision for the Future</h3>
+            <p>We envision a future where CRPR becomes the go-to platform for researchers, students, and industry professionals to access, share, and collaborate on cutting-edge computing projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Mission Section -->
+<section id="mission" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold text-primary mb-4">Our Mission & Values</h2>
+    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+      Advancing research in computing with a focus on innovation, collaboration, and transparency.
+    </p>
+
+    <div class="row mt-5">
+      <!-- Mission Item 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 p-4 h-100">
+          <div class="icon-box bg-warning text-white rounded-circle mx-auto mb-3">
+            <i class="fas fa-lightbulb fa-2x"></i>
+          </div>
+          <h4 class="fw-bold text-dark">Innovation</h4>
+          <p class="text-muted">We push the boundaries of computing research with new ideas.</p>
+        </div>
+      </div>
+      <!-- Mission Item 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 p-4 h-100">
+          <div class="icon-box bg-primary text-white rounded-circle mx-auto mb-3">
+            <i class="fas fa-users fa-2x"></i>
+          </div>
+          <h4 class="fw-bold text-dark">Collaboration</h4>
+          <p class="text-muted">We believe in teamwork and interdisciplinary research for breakthroughs.</p>
+        </div>
+      </div>
+      <!-- Mission Item 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 p-4 h-100">
+          <div class="icon-box bg-success text-white rounded-circle mx-auto mb-3">
+            <i class="fas fa-shield-alt fa-2x"></i>
+          </div>
+          <h4 class="fw-bold text-dark">Transparency</h4>
+          <p class="text-muted">We are committed to open, ethical, and accessible research.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Counters Section -->
+<section id="counters" class="py-5 position-relative text-white" style="background: url('https://upload.wikimedia.org/wikipedia/commons/3/36/Jomo_Kenyatta_University_Juja_Campus_Main_Library.JPG') center/cover no-repeat;">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.6);"></div>
+  <div class="container position-relative">
+    <div class="row text-center gy-4">
+      <!-- Trusted Users -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h2 id="trusted-users-count" class="display-4 fw-bold">{{ trusted_users_count }}</h2>
+        <p class="fs-5">Trusted Users</p>
+      </div>
+      <!-- Subscribers -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h2 id="subscribers-count" class="display-4 fw-bold">+{{ subscribers_count }}</h2>
+        <p class="fs-5">Subscribers</p>
+      </div>
+      <!-- Current Projects -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h2 id="projects-count" class="display-4 fw-bold">{{ projects_count }}</h2>
+        <p class="fs-5">Current Projects</p>
+      </div>
+      <!-- Views -->
+      <div class="col-lg-3 col-md-6 col-6">
+        <h2 id="views-count" class="display-4 fw-bold">{{ reviews_count }}</h2>
+        <p class="fs-5">Total Reviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!--publishing a project-->
+  <section id="publish-research-section">
+    <div class="container my-5">
+      <!-- Section Heading -->
+      <h1 class="text-center fw-bold text-primary mb-4">How to Publish a Research Project</h1>
+  
+      <!-- Eligibility Section -->
+      <div class="alert alert-info text-center mb-5">
+        <h4 class="alert-heading">Eligibility</h4>
+        <p>To publish a research project, you must be:</p>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-check-circle text-success"></i> A student at JKUAT <strong>OR</strong></li>
+          <li><i class="fas fa-check-circle text-success"></i> A holder of a valid JKUAT email address</li>
+        </ul>
+      </div>
+  
+      <!-- Steps Section -->
+      <div class="row g-4">
+        <!-- Step 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-sign-in-alt step-icon"></i>Step 1: Log In / Sign Up</h5>
+              <p class="card-text">Use your <strong>JKUAT email</strong> to log in or create an account.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-user step-icon"></i>Step 2: Update Your Profile</h5>
+              <p class="card-text">Add your <strong>name</strong>, and a <strong>profile image</strong>.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-plus-circle step-icon"></i>Step 3: Create a Project</h5>
+              <p class="card-text">Click the <strong>"Create a Project"</strong> button and fill in the required details.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-list-alt step-icon"></i>Step 4: Project Listing</h5>
+              <p class="card-text">Your project will be listed under <strong>"Ongoing Projects"</strong>.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-edit step-icon"></i>Step 5: Manage Your Project</h5>
+              <p class="card-text">Update, cancel, or mark your project as complete.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 step-card">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-check-circle step-icon"></i>Step 6: Completion</h5>
+              <p class="card-text">Once marked <strong>complete</strong>, no further edits can be made.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Call to Action -->
+      <div class="text-center mt-5">
+        <a href="{% url 'create_project' %}" class="btn btn-warning btn-lg"><i class="fas fa-upload me-2"></i>Publish Your Project Now</a>
+      </div>
+    </div>
+  </section>
+
+  {% include "team/members.html" %}
+
+      <!-- FAQ Section -->
+<style>
+  #faq {
+      background: linear-gradient(to right, #007A33, #003366); /* JKUAT Theme */
+      padding: 60px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+  }
+  .faq-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #FFD700; /* Gold accent */
+      margin-bottom: 20px;
+      text-transform: uppercase;
+  }
+  .faq-container {
+      width: 90%;
+      max-width: 800px;
+  }
+  .faq-item {
+      border-bottom: 1px solid white;
+      padding: 15px 0;
+  }
+  .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #E3E3E3;
+  }
+  .faq-answer {
+      display: none;
+      font-size: 18px;
+      color: #FFD700; /* Gold accent */
+      padding-top: 10px;
+  }
+  .faq-toggle {
+      font-size: 24px;
+      font-weight: bold;
+  }
+</style>
+
+<section id="faq">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <div class="faq-container">
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(0)">
+              What is the Computing Research Projects Repository (CRPR)?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">The Computing Research Projects Repository (CRPR) is a centralized platform designed to catalog and showcase ongoing research projects conducted within the Department of Computing.</div>
+      </div>
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(1)">
+              Who can access the CRPR?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">CRPR provides researchers, students, and stakeholders with easy access to project information, resources, outcomes, and collaborations.</div>
+      </div>
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(2)">
+              How can prospective students benefit from CRPR?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">Prospective students can explore the diverse range of research projects within the department, understand current research trends, and identify potential mentors or research groups they might want to join.</div>
+      </div>
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(3)">
+              What type of research projects are included in CRPR?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">CRPR includes research projects from various computing domains such as artificial intelligence, cybersecurity, software engineering, data science, and more. Each project is detailed with information on its objectives, outcomes, and ongoing collaborations.</div>
+      </div>
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(4)">
+              How can industry partners engage with CRPR?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+              Industry partners can engage with CRPR by exploring the repository to identify potential collaboration opportunities, funding research projects, and connecting with researchers and students working on innovative solutions within their fields of interest.
+          </div>
+      </div>
+      <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(5)">
+              Can I search for specific projects in CRPR?
+              <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+              Yes, CRPR includes a search feature that allows users to search for specific projects by keywords, domains, or researchers. This makes it easy to find relevant projects and information quickly.
+          </div>
+      </div>
+  </div>
+</section>
+
+<script>
+  let openFAQ = null;
+  function toggleFAQ(index) {
+      const answers = document.querySelectorAll('.faq-answer');
+      const toggles = document.querySelectorAll('.faq-toggle');
+      
+      if (openFAQ !== null && openFAQ !== index) {
+          answers[openFAQ].style.display = 'none';
+          toggles[openFAQ].textContent = '+';
+      }
+      
+      if (answers[index].style.display === 'block') {
+          answers[index].style.display = 'none';
+          toggles[index].textContent = '+';
+          openFAQ = null;
+      } else {
+          answers[index].style.display = 'block';
+          toggles[index].textContent = '-';
+          openFAQ = index;
+      }
+  }
+</script>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Include FontAwesome -->
+  <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
+  <!-- ScrollReveal JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    // Animate the counters based on real values from the DOM
+    window.onload = function () {
+      function animateCounter(id, duration = 1000) {
+        const element = document.getElementById(id);
+        const target = parseInt(element.textContent.replace(/\D/g, '')); // Extract numbers
+        let count = 0;
+        const increment = Math.ceil(target / (duration / 10)); // Speed of counting
+  
+        const counter = setInterval(() => {
+          count += increment;
+          if (count >= target) {
+            element.textContent = target;
+            clearInterval(counter);
+          } else {
+            element.textContent = count;
+          }
+        }, 10);
+      }
+  
+      animateCounter('trusted-users-count');
+      animateCounter('subscribers-count');
+      animateCounter('projects-count');
+      animateCounter('views-count');
+    };
+  
+    // ScrollReveal Animations
+    ScrollReveal().reveal('.counter-card', {
+      delay: 200,
+      distance: '50px',
+      origin: 'bottom',
+      interval: 100,
+    });
+  
+    ScrollReveal().reveal('.card', {
+      delay: 200,
+      distance: '50px',
+      origin: 'bottom',
+      interval: 100,
+    });
+  </script>  
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRPR Services</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: url('{% static "images/services/simg1.jpg" %}') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(64, 192, 59);
+            flex-wrap: wrap;
+        }
+        
+        .overlay {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 80px;
+            border-radius: 0;
+            width: 100%;
+            height: 60%;
+        }
+        
+        .overlay h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .overlay p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        
+        /* Services Section */
+        .services {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .services h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: rgb(64, 192, 59);
+            margin-bottom: 10px;
+        }
+        
+        .services p {
+            font-size: 17px;
+            color: black;
+            margin-bottom: 30px;
+        }
+        
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns */
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        
+        }
+        
+        .service {
+            background: rgba(240, 248, 236, 0.945);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        @media (max-width: 900px) {
+            .service-container {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .service-container {
+                grid-template-columns: repeat(1, 1fr); /* Single column on small screens */
+            }
+        }
+        
+        .service img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            border-bottom: 3px solid #001f5b;
+        }
+        
+        .service img:hover {
+            transform: scale(1.05);
+        }
+        
+        .service h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(64, 192, 59);
+            margin-top: 10px;
+        }
+        
+        .service p {
+            font-size: 17px;
+            color: black;
+            text-align: center;
+        }
+        
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .features h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: rgb(64, 192, 59);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .features p {
+            font-size: 18px;
+            color: black;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .feature-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .feature-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .feature-content {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .feature-content h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(64, 192, 59);
+            transition: color 0.3s ease;
+        }
+        
+        .feature-content p {
+            font-size: 16px;
+            color: black;
+            margin: 10px 0;
+        }
+        
+        .feature-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-content ul li {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: black;
+            margin-bottom: 10px;
+        }
+        
+        .feature-content ul li::before {
+            content: "✔";
+            color: rgb(64, 192, 59);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Hover Effects */
+        .feature-content h3:hover {
+            color: #007bff;
+        }
+        
+        .feature-container:hover .feature-image img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Animation */
+        .feature-container {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-in-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .conclusion-section {
+            background: rgb(180, 238, 183);
+            color: black;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 5px solid #2421da;
+        }
+        
+        .conclusion-section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .conclusion-section p {
+            font-size: 17px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }        
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="overlay">
+            <h1>Welcome to Computing Research Projects Repository Services</h1>
+            <p>Empowering Innovation, Collaboration, and Knowledge Sharing</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>OUR SERVICES</h2>
+        <p> At Computing Research Project Repository, we provide a structured and efficient
+             platform for researchers, students, and professionals 
+            to store, access, share, and collaborate on computing-related research projects.
+            Here we are going to cover on the services that we offer.</p>
+        <div class="service-container">
+            <div class="service">
+                <img src="{% static "images/services/files.jpg" %}">
+                <h3>Project Repository</h3>
+                <p>CRPR provides a centralized platform for uploading, storing , retrieving and updating 
+                    of research projects. It enables researchers, students and developers to have full time 
+                access of their projects with no limitations. The service facilitates reproducibility
+            and promotes knowledge-sharing.By supporting open-source and private projects , the repository
+            fosters Innovation and efficient project development </p>
+            </div>
+            <div class="service">
+                <img src="{% static "images/services/research.jpg" %}">
+                <h3>Research Documentation</h3>
+                <p>Researchers can update their projects progressively, ensuring proper documentation of research progress over time.
+                     Proper documentation helps in understanding the evolution of research,
+                    making replication and further studies easier. Additionally, it provides transparency, which is crucial for peer 
+                    validation and academic integrity.</p>
+            </div>
+            <div class="service">
+                <img src="{% static "images/services/collabo.jpg" %}">
+                <h3>Research Proposal Submission and Review</h3>
+                <p>The repository allows students and researchers to submit their project proposals for review and approval. 
+                    Faculty members or senior researchers can evaluate these submissions, providing constructive feedback for refinement. 
+                     It helps students in structuring their ideas into well-defined research problems. By facilitating early-stage reviews, 
+                     CRPR enhances the overall quality of research within the computing department. </p>
+            </div>
+            <div class="service">
+                <img src="{% static "images/services/together (1).jpg" %}">
+                <h3>Research Collaboration Marketplace</h3>
+                <p>The repository acts networking hub to find like-minded researchers , real time projects and industry professionals.
+                    The platform supports both academic and industrial research, bridging the gap between theory and practice.
+                    By fostering interdisciplinary teamwork and open-source contributions, it advances computing research and Innovation
+                </p>
+            </div>
+            <div class="service">
+                <img src="{% static "images/services/doc.jpg" %}">
+                <h3>Project Cataloging and Archiving</h3>
+                <p>The repository systematically stores and organizes computing research projects,
+                    ensuring that all works are easily accessible.Each project entry includes metadata such as abstracts, authors, institutions,
+                    and publication dates. This structured archiving helps in preserving academic contributions for
+                    future reference. By maintaining a well-organized catalog, the CRPR enhances knowledge-sharing 
+                    and reduces duplication of research efforts.</p>
+            </div>
+            <div class="service">
+                <img src="{% static "images/services/demonstrate.jpg" %}">
+                <h3>Project showcase and Demonstration Hub</h3>
+                <p>CRPR is an interactive platform that allows researchers to showcase their projects dynamically
+                    It enables users to upload demos and web applications, making research more engaging 
+                    and accessible. Researchers can also share video walkthroughs and posters for quick access.
+                    This enhances visibility and accessibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Why Choose Us?</h2>
+        <p>At CRPR we are committed to providing a platform that enhances the accessibility, Collaboration
+            and visibility of computing research projects.
+        </p>
+        <div class="feature-container">
+            <div class="feature-image">
+                <img src="{% static "images/services/lapclick (1).jpg" %}">
+            </div>
+            <div class="feature-content">
+                <p>Our service is designed to streamline research management while fostering an environment for 
+                    Innovation and academic growth. Here you will be able to :
+                </p>
+                <ul>
+                    <li>Access all ongoing computing research projects in one easy-to-navigate platform.</li>
+                    <li>Connect with researchers, faculty and students for seamless networking and feedback.</li>
+                    <li>Enjoy a smooth and intuitive browsing experience for effortless exploration of projects.</li>
+                    <li>Benefit form a secure , high-performance platform built with modern web technologies.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="conclusion-section">
+        <h2>Join the Future of Computing Research</h2>
+        <p>The Computing Research Projects Repository is committed to fostering innovation, collaboration, and knowledge sharing.
+             By participating in CRPR, you gain access to a wealth of research projects, contribute to academic excellence, and engage with
+              a dynamic computing community.</p>
+    </section>
+
+
+</body>
+</html>
+
+{% endblock  %}

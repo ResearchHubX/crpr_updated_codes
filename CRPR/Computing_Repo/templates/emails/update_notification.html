@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Update Notification</title>
+    <!-- Bootstrap CSS (inline for email compatibility) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .email-body {
+            padding: 20px;
+            color: #333333;
+        }
+        .email-body h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .email-body p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .email-footer {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #666666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #c82333;
+        }
+        .signature {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333333;
+        }
+        .signature img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .signature a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .signature a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <h1>New Update Available!</h1>
+        </div>
+
+        <!-- Body -->
+        <div class="email-body">
+            <h2>Hello {{ subscriber.name }},</h2>
+            <p>We're excited to inform you about a new update on <strong>Computing Research Projects Repository</strong>:</p>
+            <p><strong>{{ message }}</strong></p>
+            <p>You can visit our website to learn more: <a href="https://repository.jhubafrica.com/">https://repository.jhubafrica.com/</a></p>
+            <p>If you have any questions or need further information, feel free to contact us at <a href="mailto:Researchhubx7@gmail.com">Researchhubx7@gmail.com</a>.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <p>You are receiving this email because you subscribed to updates from <strong>Computing Research Projects Repository</strong>.</p>
+            <p>If you no longer wish to receive these updates, you can unsubscribe by clicking the button below:</p>
+            <a href="http://repository.jhubafrica.com/unsubscribe/{{ subscriber.email }}" class="btn">Unsubscribe</a>
+            <p style="margin-top: 10px;">&copy; 2024 Computing Research Projects Repository. All rights reserved.</p>
+        </div>
+
+        <!-- Signature -->
+        <div class="signature">
+            <p>Best regards,</p>
+            <p><strong>ResearchHubX Team</strong></p>
+            <p>Computing Research Projects Repository</p>
+            <p>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</p>
+            <p>Developed by: <a href="https://researchhubx.jhubafrica.com/" target="_blank">ResearchHubX Developers</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- unsubscribe_success.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>We're Sorry to See You Go</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #dc3545;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>We're Sorry to See You Go</h1>
+        <p>You've successfully unsubscribed from our mailing list. We're sad to lose you!</p>
+        <p>Your feedback is important to us. If there's anything we can do to improve your experience, please let us know.</p>
+        <p>If you change your mind, we'd love to have you back.</p>
+        <a href="{% url "home" %}" class="btn btn-primary">Re-subscribe Now</a>
+        <p class="mt-4 text-muted">&copy; 2024 Computing Research Projects Repository. All rights reserved.</p>
+    </div>
+</body>
+</html>
